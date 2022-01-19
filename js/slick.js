@@ -1,20 +1,4 @@
-/*
-     _ _      _       _
- ___| (_) ___| | __  (_)___
-/ __| | |/ __| |/ /  | / __|
-\__ \ | | (__|   < _ | \__ \
-|___/_|_|\___|_|\_(_)/ |___/
-                   |__/
 
- Version: 1.8.0
-  Author: Ken Wheeler
- Website: http://kenwheeler.github.io
-    Docs: http://kenwheeler.github.io/slick
-    Repo: http://github.com/kenwheeler/slick
-  Issues: http://github.com/kenwheeler/slick/issues
-
- */
-/* global window, document, define, jQuery, setInterval, clearInterval */
 ;(function(factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
@@ -173,9 +157,7 @@
 
             _.instanceUid = instanceUid++;
 
-            // A simple way to check for HTML strings
-            // Strict HTML recognition (must start with <)
-            // Extracted from jQuery v1.11 source
+           
             _.htmlExpr = /^(?:\s*(<[\w\W]+>)[^>]*)$/;
 
 
@@ -671,8 +653,7 @@
                     triggerBreakpoint = targetBreakpoint;
                 }
             }
-
-            // only trigger breakpoints during an actual break. not on initialize.
+ 
             if( !initial && triggerBreakpoint !== false ) {
                 _.$slider.trigger('breakpoint', [_, triggerBreakpoint]);
             }
@@ -686,7 +667,7 @@
             $target = $(event.currentTarget),
             indexOffset, slideOffset, unevenOffset;
 
-        // If target is a link, prevent default action.
+       
         if($target.is('a')) {
             event.preventDefault();
         }
@@ -1486,7 +1467,7 @@
     Slick.prototype.keyHandler = function(event) {
 
         var _ = this;
-         //Dont slide if the cursor is inside the form fields and arrow keys are pressed
+          
         if(!event.target.tagName.match('TEXTAREA|INPUT|SELECT')) {
             if (event.keyCode === 37 && _.options.accessibility === true) {
                 _.changeSlide({
@@ -1776,11 +1757,7 @@
 
                 if ( tryCount < 3 ) {
 
-                    /**
-                     * try to load the image 3 times,
-                     * leave a slight delay so we don't get
-                     * servers blocking the request.
-                     */
+    
                     setTimeout( function() {
                         _.progressiveLazyLoad( tryCount + 1 );
                     }, 500 );
@@ -1816,13 +1793,12 @@
 
         lastVisibleIndex = _.slideCount - _.options.slidesToShow;
 
-        // in non-infinite sliders, we don't want to go past the
-        // last visible index.
+        
         if( !_.options.infinite && ( _.currentSlide > lastVisibleIndex )) {
             _.currentSlide = lastVisibleIndex;
         }
 
-        // if less slides than to show, go to start.
+ 
         if ( _.slideCount <= _.options.slidesToShow ) {
             _.currentSlide = 0;
 
@@ -1865,8 +1841,7 @@
                 if (responsiveSettings.hasOwnProperty(breakpoint)) {
                     currentBreakpoint = responsiveSettings[breakpoint].breakpoint;
 
-                    // loop through the breakpoints and cut out any existing
-                    // ones with the same breakpoint number, we don't want dupes.
+                     
                     while( l >= 0 ) {
                         if( _.breakpoints[l] && _.breakpoints[l] === currentBreakpoint ) {
                             _.breakpoints.splice(l,1);
@@ -2103,18 +2078,7 @@
     Slick.prototype.setOption =
     Slick.prototype.slickSetOption = function() {
 
-        /**
-         * accepts arguments in format of:
-         *
-         *  - for changing a single option's value:
-         *     .slick("setOption", option, value, refresh )
-         *
-         *  - for changing a set of responsive options:
-         *     .slick("setOption", 'responsive', [{}, ...], refresh )
-         *
-         *  - for updating multiple values at once (not responsive)
-         *     .slick("setOption", { 'option': value, ... }, refresh )
-         */
+     
 
         var _ = this, l, item, option, value, refresh = false, type;
 
